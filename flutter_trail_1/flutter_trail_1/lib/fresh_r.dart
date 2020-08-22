@@ -1,7 +1,6 @@
-
 import 'package:flutter/material.dart';
 
-import 'package:characters/characters.dart';
+
 
 class Fresh extends StatefulWidget {
   @override
@@ -9,13 +8,222 @@ class Fresh extends StatefulWidget {
 }
 
 class _FreshState extends State<Fresh> {
-  final List<String> sub = ["Aqwertyuiop", "B", "C"];
 
-  String selectedsub = "Aqwertyuiop";
+  //zilla
+  var selectedTypeZilla;
+  List<String> _dist = <String>["Aqwertyuiop", "B", "C"];
 
+  //college
+  var selectedTypeCollege;
+  List<String> _collegeName = <String>["GU", "IMS", "C"];
+
+  //caste
+  var selectedTypeCaste;
+  List<String> _casteName = <String>["अनुसूचित जाति", "अनुसूचित जनजाति", "सामान्य वर्ग",];
+
+  //college
+  var selectedTypeReligion;
+  List<String> _religionName = <String>["HINDU",];
+
+  //gender
+  var selectedTypeGender;
+  List<String> _genderNAme = <String>["MALE","FEMALE","TRANSGENDER",];
+
+  //class8
+  var selectedTypeClass8;
+  List<String> _class8YearName = <String>["2020","2019","2018","2017","2016","2015", "2014","2013","2012",
+    "2011","2010","2009","2008","2007","2006","2005","2004","2003","2002","2001","2001"];
+
+  //zilla
+  Widget _zilla(){
+   return Column(
+     crossAxisAlignment: CrossAxisAlignment.start,
+     children: <Widget>[
+     Text(
+     '1: जिला (जहाँ छात्र / छात्रा अध्ययनरत है) *:',
+     style: TextStyle(
+       fontSize: 15.0,
+       color: Colors.black,
+       fontWeight: FontWeight.bold,
+       fontFamily: 'OpenSans',
+     ),
+   ),
+    SizedBox(height: 10.0),
+     Container(
+      alignment: Alignment.center,
+      width: double.infinity,
+      height: 50.0,
+      child: DropdownButton(
+        items: _dist.map(
+                (value) => DropdownMenuItem(
+              child: Text(value,
+                style: TextStyle(color: Colors.black),
+              ),
+              value: value,
+            )).toList(),
+        onChanged: (selectedAccountType){
+          setState(() {
+            selectedTypeZilla = selectedAccountType;
+          });
+        },
+        value: selectedTypeZilla,
+        isExpanded: false,
+        hint: Text('  Select   your    state',
+          style: TextStyle(color: Colors.black),
+        ),
+
+      ),
+      decoration: BoxDecoration(
+          border: Border.all(color: Colors.black),
+          borderRadius: BorderRadius.circular(5)),
+     )
+     ],
+    );
+  }
+
+  //college
+  Widget _college(){
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          '2: शिक्षण संस्थान *:',
+          style: TextStyle(
+            fontSize: 15.0,
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+            fontFamily: 'OpenSans',
+          ),
+        ),
+        SizedBox(height: 10.0),
+        Container(
+          alignment: Alignment.center,
+          width: double.infinity,
+          height: 50.0,
+          child: DropdownButton(
+            items: _collegeName.map(
+                    (value) => DropdownMenuItem(
+                  child: Text(value,
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  value: value,
+                )).toList(),
+            onChanged: (selectedAccountType){
+              setState(() {
+                selectedTypeCollege = selectedAccountType;
+              });
+            },
+            value: selectedTypeCollege,
+            isExpanded: false,
+            hint: Text('  Select   your    College',
+              style: TextStyle(color: Colors.black),
+            ),
+
+          ),
+          decoration: BoxDecoration(
+              border: Border.all(color: Colors.black),
+              borderRadius: BorderRadius.circular(5)),
+        )
+      ],
+    );
+  }
+
+  //caste
+  Widget _caste(){
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          '3: वर्ग / जाति समूह *:',
+          style: TextStyle(
+            fontSize: 15.0,
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+            fontFamily: 'OpenSans',
+          ),
+        ),
+        SizedBox(height: 10.0),
+        Container(
+          alignment: Alignment.center,
+          width: double.infinity,
+          height: 50.0,
+          child: DropdownButton(
+            items: _casteName.map(
+                    (value) => DropdownMenuItem(
+                  child: Text(value,
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  value: value,
+                )).toList(),
+            onChanged: (selectedAccountType){
+              setState(() {
+                selectedTypeCaste = selectedAccountType;
+              });
+            },
+            value: selectedTypeCaste,
+            isExpanded: false,
+            hint: Text('  Select  your  Caste  Group',
+              style: TextStyle(color: Colors.black),
+            ),
+
+          ),
+          decoration: BoxDecoration(
+              border: Border.all(color: Colors.black),
+              borderRadius: BorderRadius.circular(5)),
+        )
+      ],
+    );
+  }
+
+  //religion
+  Widget _religion(){
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          '4: धर्म *:',
+          style: TextStyle(
+            fontSize: 15.0,
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+            fontFamily: 'OpenSans',
+          ),
+        ),
+        SizedBox(height: 10.0),
+        Container(
+          alignment: Alignment.center,
+          width: double.infinity,
+          height: 50.0,
+          child: DropdownButton(
+            items: _religionName.map(
+                    (value) => DropdownMenuItem(
+                  child: Text(value,
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  value: value,
+                )).toList(),
+            onChanged: (selectedAccountType){
+              setState(() {
+                selectedTypeReligion = selectedAccountType;
+              });
+            },
+            value: selectedTypeReligion,
+            isExpanded: false,
+            hint: Text('  Select  your  Religion',
+              style: TextStyle(color: Colors.black),
+            ),
+
+          ),
+          decoration: BoxDecoration(
+              border: Border.all(color: Colors.black),
+              borderRadius: BorderRadius.circular(5)),
+        )
+      ],
+    );
+  }
 
   //Name
-  Widget _buildName(){
+  Widget _buildName() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -40,8 +248,12 @@ class _FreshState extends State<Fresh> {
               decorationColor: Colors.red,
             ),
             decoration: InputDecoration(
-              border: OutlineInputBorder(),
-              contentPadding: EdgeInsets.only(left:15.0,top:14.0),
+              enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.black)
+              ),
+              contentPadding: EdgeInsets.only(left: 15.0, top: 20.0),
+              border: const OutlineInputBorder(),
+              labelStyle: new TextStyle(color: Colors.black),
             ),
           ),
         )
@@ -50,7 +262,7 @@ class _FreshState extends State<Fresh> {
   }
 
   //Father Name
-  Widget _buildFatherName(){
+  Widget _buildFatherName() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -75,8 +287,12 @@ class _FreshState extends State<Fresh> {
               decorationColor: Colors.red,
             ),
             decoration: InputDecoration(
-              border: OutlineInputBorder(),
-              contentPadding: EdgeInsets.only(left:15.0,top:14.0),
+              enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.black)
+              ),
+              contentPadding: EdgeInsets.only(left: 15.0, top: 20.0),
+              border: const OutlineInputBorder(),
+              labelStyle: new TextStyle(color: Colors.black),
             ),
           ),
         )
@@ -85,7 +301,7 @@ class _FreshState extends State<Fresh> {
   }
 
   //Mother Name
-  Widget _buildMotherName(){
+  Widget _buildMotherName() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -110,8 +326,12 @@ class _FreshState extends State<Fresh> {
               decorationColor: Colors.red,
             ),
             decoration: InputDecoration(
-              border: OutlineInputBorder(),
-              contentPadding: EdgeInsets.only(left:15.0,top:14.0),
+              enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.black)
+              ),
+              contentPadding: EdgeInsets.only(left: 15.0, top: 20.0),
+              border: const OutlineInputBorder(),
+              labelStyle: new TextStyle(color: Colors.black),
             ),
           ),
         )
@@ -120,7 +340,7 @@ class _FreshState extends State<Fresh> {
   }
 
   //Dob
-  Widget _buildDob(){
+  Widget _buildDob() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -145,8 +365,12 @@ class _FreshState extends State<Fresh> {
               decorationColor: Colors.red,
             ),
             decoration: InputDecoration(
-              border: OutlineInputBorder(),
-              contentPadding: EdgeInsets.only(left:15.0,top:14.0),
+              enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.black)
+              ),
+              contentPadding: EdgeInsets.only(left: 15.0, top: 20.0),
+              border: const OutlineInputBorder(),
+              labelStyle: new TextStyle(color: Colors.black),
             ),
           ),
         )
@@ -154,8 +378,103 @@ class _FreshState extends State<Fresh> {
     );
   }
 
+  //gender
+  Widget _gender(){
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          '9: लिंग *:',
+          style: TextStyle(
+            fontSize: 15.0,
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+            fontFamily: 'OpenSans',
+          ),
+        ),
+        SizedBox(height: 10.0),
+        Container(
+          alignment: Alignment.center,
+          width: double.infinity,
+          height: 50.0,
+          child: DropdownButton(
+            items: _genderNAme.map(
+                    (value) => DropdownMenuItem(
+                  child: Text(value,
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  value: value,
+                )).toList(),
+            onChanged: (selectedAccountType){
+              setState(() {
+                selectedTypeGender = selectedAccountType;
+              });
+            },
+            value: selectedTypeGender,
+            isExpanded: false,
+            hint: Text('  Select  your  Gender',
+              style: TextStyle(color: Colors.black),
+            ),
+
+          ),
+          decoration: BoxDecoration(
+              border: Border.all(color: Colors.black),
+              borderRadius: BorderRadius.circular(5)),
+        )
+      ],
+    );
+  }
+
+  //classs8
+  Widget _class8Year(){
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          '10:कक्षा-8 उत्तीर्ण करने का वर्ष *:',
+          style: TextStyle(
+            fontSize: 15.0,
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+            fontFamily: 'OpenSans',
+          ),
+        ),
+        SizedBox(height: 10.0),
+        Container(
+          alignment: Alignment.center,
+          width: double.infinity,
+          height: 50.0,
+          child: DropdownButton(
+            elevation: 5,
+            items: _class8YearName.map(
+                    (value) => DropdownMenuItem(
+                  child: Text(value,
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  value: value,
+                )).toList(),
+            onChanged: (selectedAccountType){
+              setState(() {
+                selectedTypeClass8 = selectedAccountType;
+              });
+            },
+            value: selectedTypeClass8,
+            isExpanded: false,
+            hint: Text('Select Class 8 Passing Year',
+              style: TextStyle(color: Colors.black),
+            ),
+
+          ),
+          decoration: BoxDecoration(
+              border: Border.all(color: Colors.black),
+              borderRadius: BorderRadius.circular(5)),
+        )
+      ],
+    );
+  }
+
   //_build8School Name
-  Widget _build8School(){
+  Widget _build8School() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -180,8 +499,12 @@ class _FreshState extends State<Fresh> {
               decorationColor: Colors.red,
             ),
             decoration: InputDecoration(
-              border: OutlineInputBorder(),
-              contentPadding: EdgeInsets.only(left:15.0,top:14.0),
+              enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.black)
+              ),
+              contentPadding: EdgeInsets.only(left: 15.0, top: 20.0),
+              border: const OutlineInputBorder(),
+              labelStyle: new TextStyle(color: Colors.black),
             ),
           ),
         )
@@ -190,7 +513,7 @@ class _FreshState extends State<Fresh> {
   }
 
   //_buildphoneNo
-  Widget _buildphoneNo(){
+  Widget _buildphoneNo() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -215,8 +538,12 @@ class _FreshState extends State<Fresh> {
               decorationColor: Colors.red,
             ),
             decoration: InputDecoration(
-              border: OutlineInputBorder(),
-              contentPadding: EdgeInsets.only(left:15.0,top:14.0),
+              enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.black)
+              ),
+              contentPadding: EdgeInsets.only(left: 15.0, top: 20.0),
+              border: const OutlineInputBorder(),
+              labelStyle: new TextStyle(color: Colors.black),
             ),
           ),
         )
@@ -225,7 +552,7 @@ class _FreshState extends State<Fresh> {
   }
 
   //_buildtelephoneNo
-  Widget _buildtelephoneNo(){
+  Widget _buildtelephoneNo() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -245,13 +572,16 @@ class _FreshState extends State<Fresh> {
           child: TextField(
             keyboardType: TextInputType.phone,
             style: TextStyle(
-              color: Colors.black,
-              decorationStyle: TextDecorationStyle.dotted,
-              decorationColor: Colors.red,
-            ),
+                color: Colors.black,
+                decorationStyle: TextDecorationStyle.dotted,
+                decorationColor: Colors.red),
             decoration: InputDecoration(
-              border: OutlineInputBorder(),
-              contentPadding: EdgeInsets.only(left:15.0,top:14.0),
+              enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.black)
+              ),
+              contentPadding: EdgeInsets.only(left: 15.0, top: 20.0),
+              border: const OutlineInputBorder(),
+              labelStyle: new TextStyle(color: Colors.black),
             ),
           ),
         )
@@ -260,7 +590,7 @@ class _FreshState extends State<Fresh> {
   }
 
   //_buildemail
-  Widget _buildemail(){
+  Widget _buildemail() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -285,8 +615,12 @@ class _FreshState extends State<Fresh> {
               decorationColor: Colors.red,
             ),
             decoration: InputDecoration(
-              border: OutlineInputBorder(),
-              contentPadding: EdgeInsets.only(left:15.0,top:14.0),
+              enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.black)
+              ),
+              contentPadding: EdgeInsets.only(left: 15.0, top: 20.0),
+              border: const OutlineInputBorder(),
+              labelStyle: new TextStyle(color: Colors.black),
             ),
           ),
         )
@@ -295,7 +629,7 @@ class _FreshState extends State<Fresh> {
   }
 
   //_buildpassword
-  Widget _buildpassword(){
+  Widget _buildpassword() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -321,8 +655,12 @@ class _FreshState extends State<Fresh> {
               decorationColor: Colors.red,
             ),
             decoration: InputDecoration(
-              border: OutlineInputBorder(),
-              contentPadding: EdgeInsets.only(left:15.0 ,top:20.0),
+              enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.black)
+              ),
+              contentPadding: EdgeInsets.only(left: 15.0, top: 20.0),
+              border: const OutlineInputBorder(),
+              labelStyle: new TextStyle(color: Colors.black),
             ),
           ),
         )
@@ -331,7 +669,7 @@ class _FreshState extends State<Fresh> {
   }
 
   //_buildcfrm_password
-  Widget _buildcfrm_password(){
+  Widget _buildcfrm_password() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -342,7 +680,6 @@ class _FreshState extends State<Fresh> {
             color: Colors.black,
             fontWeight: FontWeight.bold,
             fontFamily: 'OpenSans',
-
           ),
         ),
         SizedBox(height: 10.0),
@@ -358,8 +695,12 @@ class _FreshState extends State<Fresh> {
               decorationColor: Colors.red,
             ),
             decoration: InputDecoration(
-              border: OutlineInputBorder(),
-              contentPadding: EdgeInsets.only(left:15.0,top:14.0),
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.black)
+              ),
+              contentPadding: EdgeInsets.only(left: 15.0, top: 14.0),
+              border: const OutlineInputBorder(),
+              labelStyle: new TextStyle(color: Colors.black),
             ),
           ),
         )
@@ -367,24 +708,35 @@ class _FreshState extends State<Fresh> {
     );
   }
 
+  //submit
+  Widget _buildSubmit() {
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 25.0),
+      width: 150,
+      child: RaisedButton(
+        elevation: 5.0,
+        onPressed: () => print('Submit Button Pressed'),
+        padding: EdgeInsets.all(15.0),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(5.0),
+        ),
+        color: Colors.blue,
+        child: Text(
+          'SUBMIT',
+          style: TextStyle(
+            color: Colors.white,
+            letterSpacing: 1.5,
+            fontSize: 18.0,
+            fontWeight: FontWeight.bold,
+            fontFamily: 'OpenSans',
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    //phone No linked with AADHAR
-    final menu = DropdownButton<String>(
-      value: selectedsub,
-      itemHeight: 60.0,
-      onChanged: (value) {
-        setState(() {
-          selectedsub = value;
-        });
-      },
-      items: sub.map<DropdownMenuItem<String>>((value) {
-        return DropdownMenuItem(
-          child: Text(value),
-          value: value,
-        );
-      }).toList(),
-    );
 
     return Scaffold(
       appBar: AppBar(
@@ -400,22 +752,6 @@ class _FreshState extends State<Fresh> {
       ),
       body: Stack(
         children: <Widget>[
-          /*Container(
-            height: double.infinity,
-            width: double.infinity,
-            decoration: BoxDecoration(
-                gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [
-                Color(0xFF73AEF5),
-                Color(0xFF61A4F1),
-                Color(0xFF478DE0),
-                Color(0xFF398AE5),
-              ],
-              stops: [0.1, 0.4, 0.7, 0.9],
-            )),
-          ),*/
           Container(
             height: double.infinity,
             child: SingleChildScrollView(
@@ -436,8 +772,15 @@ class _FreshState extends State<Fresh> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-
-                  SizedBox(height: 20.0),
+                  SizedBox(height: 10.0),
+                  _zilla(),
+                  SizedBox(height: 10.0),
+                  _college(),
+                  SizedBox(height: 10.0),
+                  _caste(),
+                  SizedBox(height: 10.0),
+                  _religion(),
+                  SizedBox(height: 10.0),
                   _buildName(),
                   SizedBox(height: 10.0,),
                   _buildFatherName(),
@@ -445,6 +788,10 @@ class _FreshState extends State<Fresh> {
                   _buildMotherName(),
                   SizedBox(height: 10.0,),
                   _buildDob(),
+                  SizedBox(height: 10.0,),
+                  _gender(),
+                  SizedBox(height: 10.0,),
+                  _class8Year(),
                   SizedBox(height: 10.0,),
                   _build8School(),
                   SizedBox(height: 10.0,),
@@ -457,6 +804,8 @@ class _FreshState extends State<Fresh> {
                   _buildpassword(),
                   SizedBox(height: 10.0,),
                   _buildcfrm_password(),
+                  SizedBox(height: 10.0,),
+                  _buildSubmit(),
                 ],
               ),
             ),

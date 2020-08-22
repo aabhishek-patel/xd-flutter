@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_trail_1/fresh_r.dart';
 import 'package:flutter_trail_1/renew_r.dart';
 
+
 void main() {
   runApp(MyApp());
 }
@@ -17,7 +18,7 @@ class FirstPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final renew = RaisedButton(
-      child: Text("Renew", style: TextStyle(color: Colors.black)),
+      child: Text("Renew Reistration ", style: TextStyle(color: Colors.white)),
       color: Colors.blue,
       hoverColor: Colors.lightBlueAccent,
       onPressed: () {
@@ -26,7 +27,7 @@ class FirstPage extends StatelessWidget {
     );
 
     final newR = RaisedButton(
-      child: Text("New", style: TextStyle(color: Colors.black)),
+      child: Text("New Reistration", style: TextStyle(color: Colors.white)),
       color: Colors.blue,
       hoverColor: Colors.lightBlueAccent,
       onPressed: () {
@@ -34,6 +35,7 @@ class FirstPage extends StatelessWidget {
 
       },
     );
+
     return Scaffold(
       appBar: AppBar(
         title: Text("First Page"),
@@ -45,13 +47,6 @@ class FirstPage extends StatelessWidget {
           renew,
           Divider(),
           newR,
-          /*child: RaisedButton(
-          child: Text("Second Page"),
-          onPressed: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => SecondPage()));
-          },
-        ),*/
         ]),
       ),
     );
